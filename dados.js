@@ -12,7 +12,7 @@ const salario_minimo = [
     {Ano: 2020, Salario_minimo: 1045},
 ]
 
-const inflaçãoIPCA = [
+const inflacaoIPCA = [
     {Ano: 2010, inflacao_IPCA: 5.91},
     {Ano: 2011, inflacao_IPCA: 6.50},
     {Ano: 2012, inflacao_IPCA: 5.84},
@@ -26,4 +26,4 @@ const inflaçãoIPCA = [
     {Ano: 2020, inflacao_IPCA: 4.52}
 ]
 
-export {salario_minimo, inflaçãoIPCA};
+export {salario_minimo, inflacaoIPCA};

@@ -1,5 +1,5 @@
 import input from 'readline-sync';
-import {salario_minimo, inflaçãoIPCA} from './dados.js';
+import {salario_minimo, inflacaoIPCA} from './dados.js';
 
 // O objetivo da aplicação é listar o histórico do salário mínimo e da inflação (IPCA) entre os anos de 2010 e 2020. Além disso, o sistema deve ser capaz de calcular o crescimento percentual do salário mínimo ano a ano nesse período.
 
@@ -16,10 +16,7 @@ const escolhaUsuario = (escolha) => {
             let ano = indice.Ano;
             let salario = indice.Salario_minimo;
 
-            let formatandoAno = ano.toFixed(0).split("..............");
-            let formatandoSalario = salario.toFixed(2).split("..............");
-
-            console.log(`\nAno: ${formatandoAno}\nSalário mínimo: R$ ${formatandoSalario} \n`);
+            console.log(`\nAno: ${ano}\nSalário mínimo: R$ ${salario} \n`);
         }
     } 
     else if(escolha == 2){
@@ -31,8 +28,32 @@ const escolhaUsuario = (escolha) => {
             console.log(`\nAno: ${ano}\nInflacao IPCA: ${inflacao} \n`);
         }
     } 
+    else if(escolha == 3){
+        for(let indice of salario_minimo){
+
+            let anoSalario = indice.Ano;
+            let salario = indice.Salario_minimo;
+
+            let salarioAnterior = indice;
+            let diferenca = salario - salarioAnterior;
+            let crescimento = (diferenca/salarioAnterior) * 100;
+
+            console.log(crescimento)
+
+            for(let indice of inflacaoIPCA){
+
+                let inflacaoDoIPCA = indice.inflacao_IPCA;
+                
+                console.log(`\nAno: ${anoSalario}\nSalário mínimo: R$ ${salario}`);
+                console.log(`Crescimento Salarial : \nInflação IPCA: ${inflacaoDoIPCA}`);
+            }
+            
+        }
+    }
+
     else {
-        console.log("testando")
+        console.log("\nOpção inválida");
+        
     }
 }
 
